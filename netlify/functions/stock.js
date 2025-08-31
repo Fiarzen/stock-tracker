@@ -1,3 +1,4 @@
+// netlify/functions/stock.js - Netlify serverless function
 const fetch = require('node-fetch');
 
 exports.handler = async (event, context) => {
