@@ -1,6 +1,6 @@
 class StockTracker {
     constructor() {
-        this.apiKey =  ALPHA_VANTAGE_API_KEY;
+        this.apiKey =  '';
         this.initializeEventListeners();
         
     }
@@ -244,7 +244,6 @@ class StockTracker {
 
 
 }
-// Initialize the application when DOM is fully loaded
 document.addEventListener('DOMContentLoaded', () => {
     // Create global instance for onclick handlers to access
     window.stockTracker = new StockTracker();
