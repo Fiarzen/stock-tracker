@@ -1,34 +1,15 @@
+# Netlify configuration file
 [build]
   publish = "public"
-  
+  functions = "netlify/functions"
+
+
+
+[dev]
+  publish = "public"
   functions = "netlify/functions"
 
 [[redirects]]
-  from = "/api/stock"
-  to = "/.netlify/functions/stock"
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
   status = 200
-  force = true
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-  conditions = {Role = ["admin"]}
-
-[[headers]]
-  for = "/*"
-  [headers.values]
-    X-Frame-Options = "DENY"
-    X-XSS-Protection = "1; mode=block"
-    X-Content-Type-Options = "nosniff"
-    Referrer-Policy = "strict-origin-when-cross-origin"
-
-[[headers]]
-  for = "/css/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-  for = "/js/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
