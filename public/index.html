@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Market Tracker</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📈 Stock Market Tracker</h1>
+            <p>Real-time stock data and company information</p>
+        </div>
+
+            <form class="search-form" id="stockForm">
+                <div class="input-group">
+                    <label for="stockSymbol">Stock Symbol:</label>
+                    <input type="text" id="stockSymbol" placeholder="e.g., AAPL, GOOGL, MSFT" required>
+                </div>
+                <button type="submit" class="search-btn" id="searchBtn">
+                    Search Stock
+                </button>
+            </form>
+
+            <div id="recentSearches" style="display: none;">
+                <h4 style="margin-bottom: 10px;">Recent Searches:</h4>
+                <div class="recent-searches" id="recentTags"></div>
+            </div>
+        </div>
+
+        <div id="loadingContainer" class="loading" style="display: none;">
+            <div class="spinner"></div>
+            <p>Fetching stock data...</p>
+        </div>
+
+        <div id="errorContainer" style="display: none;"></div>
+        <div id="stockContainer"></div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

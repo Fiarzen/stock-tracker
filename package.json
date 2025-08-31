@@ -1,0 +1,27 @@
+{
+  "name": "stock-tracker",
+  "version": "1.0.0",
+  "description": "A simple ticker tracker for stocks",
+  "main": "public/index.html",
+  "scripts": {
+    "dev": "netlify dev",
+    "build": "echo 'No build step required for static site'",
+    "deploy": "netlify deploy --prod"
+  },
+  "keywords": [
+    "stock-tracker"
+  ],
+  "author": "Jeremy Lam",
+  "license": "MIT",
+  "dependencies": {
+    "node-fetch": "^2.6.7"
+  },
+  "devDependencies": {
+    "netlify-cli": "^17.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fiarzen/stock-tracker.git"
+  },
+  "homepage": "https://your-stock-tracker.netlify.app"
+}
