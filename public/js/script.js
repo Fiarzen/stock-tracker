@@ -77,37 +77,7 @@ class StockTracker {
         }
     }
 
-    /**
-     * Fetch directly from Alpha Vantage API
-     * @param {string} symbol - Stock symbol to fetch
-     * @returns {Object} Formatted stock data
-     */
-    async fetchFromAlphaVantage(symbol) {
-        const url = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${symbol}&apikey=${this.apiKey}`;
-        
-        const response = await fetch(url);
-        if (!response.ok) {
-            throw new Error('Failed to fetch stock data');
-        }
 
-        const data = await response.json();
-        
-        // Check for API errors
-        if (data['Error Message']) {
-            throw new Error('Invalid stock symbol');
-        }
-        
-        if (data['Note']) {
-            throw new Error('API rate limit exceeded. Please try again later.');
-        }
-
-        const quote = data['Global Quote'];
-        if (!quote || Object.keys(quote).length === 0) {
-            throw new Error('No data found for this symbol');
-        }
-
-        return this.formatAlphaVantageData(quote);
-    }
     
     /**
      * Format backend API response data
