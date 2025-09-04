@@ -98,23 +98,6 @@ class StockTracker {
             open: data.open
         };
     }
-    formatAlphaVantageData(quote) {
-        const price = parseFloat(quote['05. price']);
-        const change = parseFloat(quote['09. change']);
-        const changePercent = quote['10. change percent'].replace('%', '');
-
-        return {
-            symbol: quote['01. symbol'],
-            name: `${quote['01. symbol']} Corporation`, // Alpha Vantage doesn't provide company names in global quote
-            price: price.toFixed(2),
-            change: (change >= 0 ? '+' : '') + change.toFixed(2),
-            changePercent: (parseFloat(changePercent) >= 0 ? '+' : '') + parseFloat(changePercent).toFixed(2) + '%',
-            volume: parseInt(quote['06. volume']).toLocaleString(),
-            high: parseFloat(quote['03. high']).toFixed(2),
-            low: parseFloat(quote['04. low']).toFixed(2),
-            open: parseFloat(quote['02. open']).toFixed(2)
-        };
-    }
 
     /**
      * Display stock data in the UI
